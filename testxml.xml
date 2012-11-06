@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<BrowseNodeLookupResponse
+	xmlns="http://webservices.amazon.com/AWSECommerceService/2011-08-01">
+	<OperationRequest>
+		<HTTPHeaders>
+			<Header Name="UserAgent" Value="Java/1.7.0_03" />
+		</HTTPHeaders>
+		<RequestId>8594b0b7-770b-42a0-b58f-60786be40501</RequestId>
+		<Arguments>
+			<Argument Name="Operation" Value="BrowseNodeLookup" />
+			<Argument Name="Service" Value="AWSECommerceService" />
+			<Argument Name="BrowseNodeId" Value="1000" />
+			<Argument Name="AWSAccessKeyId" Value="1KSNPZST1QKCEWJ2KSG2" />
+			<Argument Name="Timestamp" Value="2012-09-12T18:18:28Z" />
+			<Argument Name="Signature"
+				Value="tRMBdFtXUwdshdejq5YJ/yyry/pGp2ycmm6VdM2Bd/g=" />
+			<Argument Name="ResponseGroup" Value="TopSellers" />
+			<Argument Name="AssociateTag" Value="hearmusi-20" />
+			<Argument Name="Version" Value="2009-03-31" />
+		</Arguments>
+		<RequestProcessingTime>0.122923</RequestProcessingTime>
+	</OperationRequest>
+	<BrowseNodes>
+		<Request>
+			<IsValid>True</IsValid>
+			<BrowseNodeLookupRequest>
+				<BrowseNodeId>1000</BrowseNodeId>
+				<ResponseGroup>TopSellers</ResponseGroup>
+			</BrowseNodeLookupRequest>
+		</Request>
+		<BrowseNode>
+			<BrowseNodeId>1000</BrowseNodeId>
+			<Name>Subjects</Name>
+			<TopSellers>
+				<TopSeller>
+					<ASIN>B008MG1E4A</ASIN>
+					<Title>No Easy Day: The Firsthand Account of the Mission That
+						Killed Osama Bin Laden
+					</Title>
+				</TopSeller>
+				<TopSeller>
+					<ASIN>0525953728</ASIN>
+					<Title>No Easy Day: The Firsthand Account of the Mission That
+						Killed Osama Bin Laden
+					</Title>
+				</TopSeller>
+				<TopSeller>
+					<ASIN>B007GCY8FS</ASIN>
+					<Title>A Wanted Man: A Jack Reacher Novel</Title>
+				</TopSeller>
+				<TopSeller>
+					<ASIN>B006LSZECO</ASIN>
+					<Title>Gone Girl: A Novel</Title>
+				</TopSeller>
+				<TopSeller>
+					<ASIN>B007IXWL2C</ASIN>
+					<Title>Fifty Shades Freed: Book Three of the Fifty Shades Trilogy
+					</Title>
+				</TopSeller>
+				<TopSeller>
+					<ASIN>B007IXWKUK</ASIN>
+					<Title>Fifty Shades Darker: Book Two of the Fifty Shades Trilogy
+					</Title>
+				</TopSeller>
+				<TopSeller>
+					<ASIN>B007J4T2G8</ASIN>
+					<Title>Fifty Shades of Grey: Book One of the Fifty Shades Trilogy
+					</Title>
+				</TopSeller>
+				<TopSeller>
+					<ASIN>B003XF1XOQ</ASIN>
+					<Title>Mockingjay (The Final Book of The Hunger Games)</Title>
+				</TopSeller>
+				<TopSeller>
+					<ASIN>B007XA3KUM</ASIN>
+					<Title>Winter's Tale</Title>
+				</TopSeller>
+				<TopSeller>
+					<ASIN>B003O86FMW</ASIN>
+					<Title>Catching Fire (The Second Book of the Hunger Games)</Title>
+				</TopSeller>
+			</TopSellers>
+			<TopItemSet>
+				<Type>TopSellers</Type>
+				<TopItem>
+					<ASIN>B008MG1E4A</ASIN>
+					<Title>No Easy Day: The Firsthand Account of the Mission That
+						Killed Osama Bin Laden
+					</Title>
+					<DetailPageURL>http://www.amazon.com/No-Easy-Day-Firsthand-ebook/dp/B008MG1E4A%3FSubscriptionId%3D1KSNPZST1QKCEWJ2KSG2%26tag%3Dhearmusi-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB008MG1E4A
+					</DetailPageURL>
+					<ProductGroup>eBooks</ProductGroup>
+					<Author>Owen, Mark</Author>
+					<Author>Maurer, Kevin</Author>
+				</TopItem>
+				<TopItem>
+					<ASIN>0525953728</ASIN>
+					<Title>No Easy Day: The Firsthand Account of the Mission That
+						Killed Osama Bin Laden
+					</Title>
+					<DetailPageURL>http://www.amazon.com/No-Easy-Day-Firsthand-Account/dp/0525953728%3FSubscriptionId%3D1KSNPZST1QKCEWJ2KSG2%26tag%3Dhearmusi-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D0525953728
+					</DetailPageURL>
+					<ProductGroup>Book</ProductGroup>
+					<Author>Owen, Mark</Author>
+					<Author>Maurer, Kevin</Author>
+				</TopItem>
+				<TopItem>
+					<ASIN>B007GCY8FS</ASIN>
+					<Title>A Wanted Man: A Jack Reacher Novel</Title>
+					<DetailPageURL>http://www.amazon.com/Wanted-Man-Reacher-Novel-ebook/dp/B007GCY8FS%3FSubscriptionId%3D1KSNPZST1QKCEWJ2KSG2%26tag%3Dhearmusi-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB007GCY8FS
+					</DetailPageURL>
+					<ProductGroup>eBooks</ProductGroup>
+					<Author>Child, Lee</Author>
+				</TopItem>
+				<TopItem>
+					<ASIN>B006LSZECO</ASIN>
+					<Title>Gone Girl: A Novel</Title>
+					<DetailPageURL>http://www.amazon.com/Gone-Girl-A-Novel-ebook/dp/B006LSZECO%3FSubscriptionId%3D1KSNPZST1QKCEWJ2KSG2%26tag%3Dhearmusi-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB006LSZECO
+					</DetailPageURL>
+					<ProductGroup>eBooks</ProductGroup>
+					<Author>Flynn, Gillian</Author>
+				</TopItem>
+				<TopItem>
+					<ASIN>B007IXWL2C</ASIN>
+					<Title>Fifty Shades Freed: Book Three of the Fifty Shades Trilogy
+					</Title>
+					<DetailPageURL>http://www.amazon.com/Fifty-Shades-Freed-Trilogy-ebook/dp/B007IXWL2C%3FSubscriptionId%3D1KSNPZST1QKCEWJ2KSG2%26tag%3Dhearmusi-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB007IXWL2C
+					</DetailPageURL>
+					<ProductGroup>eBooks</ProductGroup>
+					<Author>James, E L</Author>
+				</TopItem>
+				<TopItem>
+					<ASIN>B007IXWKUK</ASIN>
+					<Title>Fifty Shades Darker: Book Two of the Fifty Shades Trilogy
+					</Title>
+					<DetailPageURL>http://www.amazon.com/Fifty-Shades-Darker-Trilogy-ebook/dp/B007IXWKUK%3FSubscriptionId%3D1KSNPZST1QKCEWJ2KSG2%26tag%3Dhearmusi-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB007IXWKUK
+					</DetailPageURL>
+					<ProductGroup>eBooks</ProductGroup>
+					<Author>James, E L</Author>
+				</TopItem>
+				<TopItem>
+					<ASIN>B007J4T2G8</ASIN>
+					<Title>Fifty Shades of Grey: Book One of the Fifty Shades Trilogy
+					</Title>
+					<DetailPageURL>http://www.amazon.com/Fifty-Shades-Grey-Trilogy-ebook/dp/B007J4T2G8%3FSubscriptionId%3D1KSNPZST1QKCEWJ2KSG2%26tag%3Dhearmusi-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB007J4T2G8
+					</DetailPageURL>
+					<ProductGroup>eBooks</ProductGroup>
+					<Author>James, E L</Author>
+				</TopItem>
+				<TopItem>
+					<ASIN>B003XF1XOQ</ASIN>
+					<Title>Mockingjay (The Final Book of The Hunger Games)</Title>
+					<DetailPageURL>http://www.amazon.com/Mockingjay-Final-Hunger-Games-ebook/dp/B003XF1XOQ%3FSubscriptionId%3D1KSNPZST1QKCEWJ2KSG2%26tag%3Dhearmusi-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB003XF1XOQ
+					</DetailPageURL>
+					<ProductGroup>eBooks</ProductGroup>
+					<Author>Collins, Suzanne</Author>
+				</TopItem>
+				<TopItem>
+					<ASIN>B007XA3KUM</ASIN>
+					<Title>Winter's Tale</Title>
+					<DetailPageURL>http://www.amazon.com/Winters-Tale-ebook/dp/B007XA3KUM%3FSubscriptionId%3D1KSNPZST1QKCEWJ2KSG2%26tag%3Dhearmusi-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB007XA3KUM
+					</DetailPageURL>
+					<ProductGroup>eBooks</ProductGroup>
+					<Author>Helprin, Mark</Author>
+				</TopItem>
+				<TopItem>
+					<ASIN>B003O86FMW</ASIN>
+					<Title>Catching Fire (The Second Book of the Hunger Games)</Title>
+					<DetailPageURL>http://www.amazon.com/Catching-Second-Hunger-Games-ebook/dp/B003O86FMW%3FSubscriptionId%3D1KSNPZST1QKCEWJ2KSG2%26tag%3Dhearmusi-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB003O86FMW
+					</DetailPageURL>
+					<ProductGroup>eBooks</ProductGroup>
+					<Author>Collins, Suzanne</Author>
+				</TopItem>
+			</TopItemSet>
+		</BrowseNode>
+	</BrowseNodes>
+</BrowseNodeLookupResponse>
+
+
+
+
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ItemLookupResponse
+	xmlns="http://webservices.amazon.com/AWSECommerceService/2011-08-01">
+	<OperationRequest>
+		<HTTPHeaders>
+			<Header Name="UserAgent" Value="Java/1.7.0_03" />
+		</HTTPHeaders>
+		<RequestId>bd568500-d452-4cfb-b34a-2c00865e5404</RequestId>
+		<Arguments>
+			<Argument Name="Operation" Value="ItemLookup" />
+			<Argument Name="Service" Value="AWSECommerceService" />
+			<Argument Name="Signature"
+				Value="XmyK9ETH2S5CohyrxRxqWrPXVn+qZAPUNze6LbepboY=" />
+			<Argument Name="AssociateTag" Value="hearmusi-20" />
+			<Argument Name="Version" Value="2009-03-31" />
+			<Argument Name="ItemId" Value="B007XA3KUM" />
+			<Argument Name="AWSAccessKeyId" Value="1KSNPZST1QKCEWJ2KSG2" />
+			<Argument Name="Timestamp" Value="2012-09-12T19:20:30Z" />
+		</Arguments>
+		<RequestProcessingTime>0.0118030000000000</RequestProcessingTime>
+	</OperationRequest>
+	<Items>
+		<Request>
+			<IsValid>True</IsValid>
+			<ItemLookupRequest>
+				<IdType>ASIN</IdType>
+				<ItemId>B007XA3KUM</ItemId>
+				<ResponseGroup>Small</ResponseGroup>
+				<VariationPage>All</VariationPage>
+			</ItemLookupRequest>
+		</Request>
+		<Item>
+			<ASIN>B007XA3KUM</ASIN>
+			<DetailPageURL>http://www.amazon.com/Winters-Tale-ebook/dp/B007XA3KUM%3FSubscriptionId%3D1KSNPZST1QKCEWJ2KSG2%26tag%3Dhearmusi-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB007XA3KUM
+			</DetailPageURL>
+			<ItemLinks>
+				<ItemLink>
+					<Description>Technical Details</Description>
+					<URL>http://www.amazon.com/Winters-Tale-ebook/dp/tech-data/B007XA3KUM%3FSubscriptionId%3D1KSNPZST1QKCEWJ2KSG2%26tag%3Dhearmusi-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB007XA3KUM
+					</URL>
+				</ItemLink>
+				<ItemLink>
+					<Description>Add To Baby Registry</Description>
+					<URL>http://www.amazon.com/gp/registry/baby/add-item.html%3Fasin.0%3DB007XA3KUM%26SubscriptionId%3D1KSNPZST1QKCEWJ2KSG2%26tag%3Dhearmusi-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB007XA3KUM
+					</URL>
+				</ItemLink>
+				<ItemLink>
+					<Description>Add To Wedding Registry</Description>
+					<URL>http://www.amazon.com/gp/registry/wedding/add-item.html%3Fasin.0%3DB007XA3KUM%26SubscriptionId%3D1KSNPZST1QKCEWJ2KSG2%26tag%3Dhearmusi-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB007XA3KUM
+					</URL>
+				</ItemLink>
+				<ItemLink>
+					<Description>Add To Wishlist</Description>
+					<URL>http://www.amazon.com/gp/registry/wishlist/add-item.html%3Fasin.0%3DB007XA3KUM%26SubscriptionId%3D1KSNPZST1QKCEWJ2KSG2%26tag%3Dhearmusi-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB007XA3KUM
+					</URL>
+				</ItemLink>
+				<ItemLink>
+					<Description>Tell A Friend</Description>
+					<URL>http://www.amazon.com/gp/pdp/taf/B007XA3KUM%3FSubscriptionId%3D1KSNPZST1QKCEWJ2KSG2%26tag%3Dhearmusi-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB007XA3KUM
+					</URL>
+				</ItemLink>
+				<ItemLink>
+					<Description>All Customer Reviews</Description>
+					<URL>http://www.amazon.com/review/product/B007XA3KUM%3FSubscriptionId%3D1KSNPZST1QKCEWJ2KSG2%26tag%3Dhearmusi-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB007XA3KUM
+					</URL>
+				</ItemLink>
+				<ItemLink>
+					<Description>All Offers</Description>
+					<URL>http://www.amazon.com/gp/offer-listing/B007XA3KUM%3FSubscriptionId%3D1KSNPZST1QKCEWJ2KSG2%26tag%3Dhearmusi-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB007XA3KUM
+					</URL>
+				</ItemLink>
+			</ItemLinks>
+			<ItemAttributes>
+				<Author>Mark Helprin</Author>
+				<Manufacturer>Houghton Mifflin Harcourt</Manufacturer>
+				<ProductGroup>eBooks</ProductGroup>
+				<Title>Winter's Tale</Title>
+			</ItemAttributes>
+		</Item>
+	</Items>
+</ItemLookupResponse>
+
+
+
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<BrowseNodeLookupResponse
+	xmlns="http://webservices.amazon.com/AWSECommerceService/2011-08-01">
+	<OperationRequest>
+		<HTTPHeaders>
+			<Header Name="UserAgent" Value="Java/1.7.0_03" />
+		</HTTPHeaders>
+		<RequestId>2acc13af-b536-4e3f-94ea-f01d689a27f6</RequestId>
+		<Arguments>
+			<Argument Name="Operation" Value="BrowseNodeLookup" />
+			<Argument Name="Service" Value="AWSECommerceService" />
+			<Argument Name="AssociateTag" Value="hearmusi-21" />
+			<Argument Name="Version" Value="2009-03-31" />
+			<Argument Name="Signature"
+				Value="4g6BMclpE2pFiG6UgfRXRgIIIeQD6kEZo3IlFUroBfY=" />
+			<Argument Name="BrowseNodeId" Value="1025612" />
+			<Argument Name="AWSAccessKeyId" Value="1KSNPZST1QKCEWJ2KSG2" />
+			<Argument Name="Timestamp" Value="2012-09-13T04:30:49Z" />
+		</Arguments>
+		<RequestProcessingTime>0.002451</RequestProcessingTime>
+	</OperationRequest>
+	<BrowseNodes>
+		<Request>
+			<IsValid>True</IsValid>
+			<BrowseNodeLookupRequest>
+				<BrowseNodeId>1025612</BrowseNodeId>
+			</BrowseNodeLookupRequest>
+		</Request>
+		<BrowseNode>
+			<BrowseNodeId>1025612</BrowseNodeId>
+			<Name>Subjects</Name>
+			<IsCategoryRoot>1</IsCategoryRoot>
+			<Children>
+				<BrowseNode>
+					<BrowseNodeId>349777011</BrowseNodeId>
+					<Name>Antiquarian, Rare &amp; Collectable</Name>
+				</BrowseNode>
+				<BrowseNode>
+					<BrowseNodeId>91</BrowseNodeId>
+					<Name>Art, Architecture &amp; Photography</Name>
+				</BrowseNode>
+				<BrowseNode>
+					<BrowseNodeId>51</BrowseNodeId>
+					<Name>Audio Cassettes</Name>
+				</BrowseNode>
+				<BrowseNode>
+					<BrowseNodeId>267859</BrowseNodeId>
+					<Name>Audio CDs</Name>
+				</BrowseNode>
+				<BrowseNode>
+					<BrowseNodeId>67</BrowseNodeId>
+					<Name>Biography</Name>
+				</BrowseNode>
+				<BrowseNode>
+					<BrowseNodeId>68</BrowseNodeId>
+					<Name>Business, Finance &amp; Law</Name>
+				</BrowseNode>
+				<BrowseNode>
+					<BrowseNodeId>507848</BrowseNodeId>
+					<Name>Calendars, Diaries, Annuals &amp; More</Name>
+				</BrowseNode>
+				<BrowseNode>
+					<BrowseNodeId>69</BrowseNodeId>
+					<Name>Children's Books</Name>
+				</BrowseNode>
+				<BrowseNode>
+					<BrowseNodeId>274081</BrowseNodeId>
+					<Name>Comics &amp; Graphic Novels</Name>
+				</BrowseNode>
+				<BrowseNode>
+					<BrowseNodeId>71</BrowseNodeId>
+					<Name>Computing &amp; Internet</Name>
+				</BrowseNode>
+				<BrowseNode>
+					<BrowseNodeId>72</BrowseNodeId>
+					<Name>Crime, Thrillers &amp; Mystery</Name>
+				</BrowseNode>
+				<BrowseNode>
+					<BrowseNodeId>637262</BrowseNodeId>
+					<Name>e-Books</Name>
+				</BrowseNode>
+				<BrowseNode>
+					<BrowseNodeId>279254</BrowseNodeId>
+					<Name>Fantasy</Name>
+				</BrowseNode>
+				<BrowseNode>
+					<BrowseNodeId>62</BrowseNodeId>
+					<Name>Fiction</Name>
+				</BrowseNode>
+				<BrowseNode>
+					<BrowseNodeId>66</BrowseNodeId>
+					<Name>Food &amp; Drink</Name>
+				</BrowseNode>
+				<BrowseNode>
+					<BrowseNodeId>275835</BrowseNodeId>
+					<Name>Gay &amp; Lesbian</Name>
+				</BrowseNode>
+				<BrowseNode>
+					<BrowseNodeId>74</BrowseNodeId>
+					<Name>Health, Family &amp; Lifestyle</Name>
+				</BrowseNode>
+				<BrowseNode>
+					<BrowseNodeId>65</BrowseNodeId>
+					<Name>History</Name>
+				</BrowseNode>
+				<BrowseNode>
+					<BrowseNodeId>64</BrowseNodeId>
+					<Name>Home &amp; Garden</Name>
+				</BrowseNode>
+				<BrowseNode>
+					<BrowseNodeId>63</BrowseNodeId>
+					<Name>Horror</Name>
+				</BrowseNode>
+				<BrowseNode>
+					<BrowseNodeId>89</BrowseNodeId>
+					<Name>Humour</Name>
+				</BrowseNode>
+				<BrowseNode>
+					<BrowseNodeId>275738</BrowseNodeId>
+					<Name>Languages</Name>
+				</BrowseNode>
+				<BrowseNode>
+					<BrowseNodeId>61</BrowseNodeId>
+					<Name>Mind, Body &amp; Spirit</Name>
+				</BrowseNode>
+				<BrowseNode>
+					<BrowseNodeId>73</BrowseNodeId>
+					<Name>Music, Stage &amp; Screen</Name>
+				</BrowseNode>
+				<BrowseNode>
+					<BrowseNodeId>275389</BrowseNodeId>
+					<Name>Poetry, Drama &amp; Criticism</Name>
+				</BrowseNode>
+				<BrowseNode>
+					<BrowseNodeId>59</BrowseNodeId>
+					<Name>Reference</Name>
+				</BrowseNode>
+				<BrowseNode>
+					<BrowseNodeId>58</BrowseNodeId>
+					<Name>Religion &amp; Spirituality</Name>
+				</BrowseNode>
+				<BrowseNode>
+					<BrowseNodeId>88</BrowseNodeId>
+					<Name>Romance</Name>
+				</BrowseNode>
+				<BrowseNode>
+					<BrowseNodeId>57</BrowseNodeId>
+					<Name>Science &amp; Nature</Name>
+				</BrowseNode>
+				<BrowseNode>
+					<BrowseNodeId>279292</BrowseNodeId>
+					<Name>Science Fiction</Name>
+				</BrowseNode>
+				<BrowseNode>
+					<BrowseNodeId>564334</BrowseNodeId>
+					<Name>Scientific, Technical &amp; Medical</Name>
+				</BrowseNode>
+				<BrowseNode>
+					<BrowseNodeId>60</BrowseNodeId>
+					<Name>Society, Politics &amp; Philosophy</Name>
+				</BrowseNode>
+				<BrowseNode>
+					<BrowseNodeId>55</BrowseNodeId>
+					<Name>Sports, Hobbies &amp; Games</Name>
+				</BrowseNode>
+				<BrowseNode>
+					<BrowseNodeId>13384091</BrowseNodeId>
+					<Name>Study Books</Name>
+				</BrowseNode>
+				<BrowseNode>
+					<BrowseNodeId>83</BrowseNodeId>
+					<Name>Travel &amp; Holiday</Name>
+				</BrowseNode>
+			</Children>
+			<Ancestors>
+				<BrowseNode>
+					<BrowseNodeId>266239</BrowseNodeId>
+					<Name>Books</Name>
+				</BrowseNode>
+			</Ancestors>
+		</BrowseNode>
+	</BrowseNodes>
+</BrowseNodeLookupResponse>
+
+
+
+{
+"token_type": "http://schemas.xmlsoap.org/ws/2009/11/swt-token-profile-1.0",
+"access_token":
+"http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=santifinland&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fdatamarket.accesscontrol.windows.net%2f&Audience=http%3a%2f%2fapi.microsofttranslator.com&ExpiresOn=1347722936&Issuer=https%3a%2f%2fdatamarket.accesscontrol.windows.net%2f&HMACSHA256=NwyP38lneq%2fjNkAfc7NsAha6LaVl2p5eXoDGZQ1wa50%3d",
+"expires_in": "600",
+"scope": "http://api.microsofttranslator.com"
+}
