@@ -7,7 +7,9 @@ import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.logging.Level;
@@ -28,32 +30,42 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-public class RequestItem extends AmazonAPI {
-    
-    public RequestItem(){
+public class SearchItem extends AmazonAPI {
+
+      
+    public SearchItem(){
     	
     	super();
     }
+    
+    public static Item searchItem(String country, String author, String title) throws InvalidKeyException, IllegalArgumentException, UnsupportedEncodingException, NoSuchAlgorithmException {
 
-    public static void getItem(String country, String ASIN) throws InvalidKeyException, IllegalArgumentException, UnsupportedEncodingException, NoSuchAlgorithmException {
-        SignedRequestsHelper helper = SignedRequestsHelper.getInstance("ecs.amazonaws.com", key, secret);
+		SignedRequestsHelper helper = SignedRequestsHelper.getInstance(getEndpoint(country), key, secret);
+		Item item = null;
 
-        Map<String, String> params = new HashMap<String, String>();
-        params.put("Service", "AWSECommerceService");
-        params.put("Version", "2009-03-31");
-        params.put("Operation", "ItemLookup");
-        params.put("ItemId", ASIN);        
-        params.put("AssociateTag", getAssociateTag(country));
+		System.out.println("############ Searching");
+		Map<String, String> params = new HashMap<String, String>();
+		params.put("Service", "AWSECommerceService");
+		params.put("Version", "2011-08-01");
+		params.put("Operation", "ItemSearch");
+		params.put("SearchIndex", "Books");
+		if (author == null) author = " ";
+		params.put("Author", author);
+		params.put("Title", title);
+		params.put("AssociateTag", getAssociateTag(country));
 
-        String url = helper.sign(params);
-        try {
-            Document response = getResponse(url);
-            printResponse(response);
-            parseResponse(response);
-        } catch (Exception ex) {
-            Logger.getLogger(RequestItem.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+		String url = helper.sign(params);
+		try {
+			Document response = getResponse(url);
+			//printResponse(response);
+			item = parseResponse(response);
+		} catch (Exception ex) {
+			Logger.getLogger(RequestTopSellers.class.getName()).log(Level.SEVERE, null, ex);
+		}
+		
+		return item;
+	}
+   
 
     private static Document getResponse(String url) throws ParserConfigurationException, IOException, SAXException {
         DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
@@ -73,23 +85,30 @@ public class RequestItem extends AmazonAPI {
         System.out.println(toString);
     }
     
-    private static void parseResponse(Document response)  {
+    private static Item parseResponse(Document response)  {
 
-		NodeList nodeList = response.getElementsByTagName("TopItem");
+    	String ASIN = null;
+		String URL = null;
+		Item item = new Item();
+		
+		NodeList nodeList = response.getElementsByTagName("Item");
 		int size = nodeList.getLength();
 		for (int i = 0; i < size; i++) {
 			Node topItem = nodeList.item(i);
 			NodeList childnodes = topItem.getChildNodes();
-			int sizechildnodes = childnodes.getLength();
+			int sizechildnodes = childnodes.getLength();			
 			for (int j = 0; j < sizechildnodes; j++) {
 				Node child = childnodes.item(j);
+				
 				if (child.getNodeName().compareTo("ASIN") == 0) {
-					
-				}
-				//System.out.println(child.getNodeName());
-				//System.out.println(child.getTextContent());
-			}
+					System.out.println("ZZZZZZZZZZZZZZ found one: " + child.getTextContent());
+					item.setASIN((child.getTextContent()));
+					return item;
+				}																				
+			}						
 		}
+		
+		return item;
 
 	}
 

@@ -3,7 +3,6 @@ package es.sdmt.wwbs;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
@@ -25,34 +24,43 @@ public class BuildSite {
 
 		// Request items for every country
 		List<String> countries = new ArrayList<String>();
-		//countries.add("US");		
-		//countries.add("ES");
+		countries.add("US");		
+		countries.add("ES");
 		countries.add("IT");
-		//countries.add("DE");
+		countries.add("DE");
 		//countries.add("CA");		
-		//countries.add("FR");
-		//countries.add("UK");
-		
-		RequestItem requestItem = new RequestItem();
+		countries.add("FR");
+		countries.add("UK");
+				
+		List<String> index = new ArrayList<String>();
 		
 		Iterator<String> i = countries.iterator();
 		while (i.hasNext()) {			
 			String country = i.next();
-			System.out.println("############ Country: " + country);
-			String endpoint = properties.getProperty(country + ".endpoint");
-			String browseNodeId = properties.getProperty(country + ".BrowseNodeId");
-			String associateTag = properties.getProperty(country + ".AssociateTag");			 
+			System.out.println("############ Country: " + country);						 
 			List<Item> itemList = requestTopSellers.getTopSellers(country);	
 			itemList = TranslateItems.translate(country.toLowerCase(), itemList);
 			
 			Iterator<Item> j = itemList.iterator();
 			System.out.println("Found " + itemList.size() + " items translated");
+			
+			index.add(country);
+			
 			while (j.hasNext()) {
+				System.out.println("SSSSSSSSSSSSSSSSSSSSSSS Item number: " + j);
 				Item item = j.next();
 				if (item.getASIN() != null) {
-					requestItem.getItem(country, item.getASIN());
+					String detailPageURL = RequestItem.getItem(country, item.getASIN());
+					index.add("<a href=\"" + detailPageURL + "\"><img border=\"0\" src=\"http://images.amazon.com/images/P/" + item.getASIN() + "\" width=\"114\" height=\"150\" style=\"margin-right: 8px\"> </a>" );									
 				}
 			}
+		}
+		
+		System.out.println("ZZZZZZZZZZZZZZZZZ            Final index: ");
+		Iterator<String> k = index.iterator();
+		while (k.hasNext()) {
+			String line = k.next();
+			System.out.println(line);
 		}
 	}
 

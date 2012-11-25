@@ -25,6 +25,7 @@ public class TranslateItems {
 			System.out.println("############ Tranlating: " + title);
 			BingTranslator bingTranslator = new BingTranslator();			
 			BingAccessToken bingAccessToken = BingTranslator.getAccessToken();
+			if (country.contains("us")) country = "en";
 			String translatedTitle = bingTranslator.translate(bingAccessToken, title, country, "en");
 			String author = item.getAuthor();
 			SearchItem searchItem = new SearchItem();
