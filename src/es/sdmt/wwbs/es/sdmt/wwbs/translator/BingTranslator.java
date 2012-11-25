@@ -1,4 +1,4 @@
-package es.sdmt.wwbs;
+package es.sdmt.wwbs.translator;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -17,6 +17,8 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.restlet.engine.header.Header;
 import org.restlet.engine.header.HeaderConstants;
 import org.restlet.representation.Representation;
@@ -25,6 +27,8 @@ import org.restlet.util.Series;
 
 import com.google.gson.Gson;
 
+import es.sdmt.wwbs.WordWideBestSellers;
+
 /**
  * The OAuth 2.0 Protocol draft-ietf-oauth-v2-10 -
  * http://tools.ietf.org/html/draft-ietf-oauth-v2-10
@@ -32,6 +36,8 @@ import com.google.gson.Gson;
 public class BingTranslator {
 
 	static Properties properties = new Properties();
+	
+	private static Logger logger = LogManager.getLogger(BingTranslator.class.getName());
 
 	public static final String RESTLET_HTTP_HEADERS = "org.restlet.http.headers";
 
@@ -60,7 +66,7 @@ public class BingTranslator {
 			}
 		}
 		headers.add(header, value);
-		System.out.println("Header added [HEADER NAME: " + header + ", VALUE: " + value + "]");
+		logger.debug("Header added [HEADER NAME: " + header + ", VALUE: " + value + "]");
 	}
 
 	public static String translate(BingAccessToken bingAccessToken, String text, String from, String to) throws IOException {
@@ -70,17 +76,17 @@ public class BingTranslator {
 		ClientResource clientResource = new ClientResource(resource);
 		setRequestCustomHttpHeader(clientResource, "Authorization", "Bearer " + bingAccessToken.getAccess_token());
 
-		System.out.println("-> ClientResource Header:");
-		System.out.println(clientResource.getRequestAttributes().get(RESTLET_HTTP_HEADERS));
+		logger.debug("-> ClientResource Header:");
+		logger.debug(clientResource.getRequestAttributes().get(RESTLET_HTTP_HEADERS));
 
 		// Request data
-		System.out.println("-> Executing request    GET [" + resource + "]");
+		logger.debug("-> Executing request    GET [" + resource + "]");
 		Representation responseRepresentation = null;
 		responseRepresentation = clientResource.get();
 
-		System.out.println("-> Data Response: ");
+		logger.debug("-> Data Response: ");
 		String response = responseRepresentation.getText();
-		System.out.println(response);
+		logger.debug(response);
 
 		return cleanResponse(response);
 	}
@@ -95,7 +101,7 @@ public class BingTranslator {
 		if (parentesis != -1) {
 			response = response.substring(0, parentesis);
 		}
-		System.out.println("Cleanded response: " + response);
+		logger.debug("Cleanded response: " + response);
 		return response;
 	}
 
@@ -126,9 +132,9 @@ public class BingTranslator {
 				String strResult = EntityUtils.toString(httpResponse.getEntity());
 				Gson gson = new Gson();
 				bingAccessToken = gson.fromJson(strResult, BingAccessToken.class);
-				System.out.println(strResult);
+				logger.debug(strResult);
 			} else {
-				System.out.println(httpResponse.getStatusLine().getStatusCode());
+				logger.debug(httpResponse.getStatusLine().getStatusCode());
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -153,12 +159,12 @@ public class BingTranslator {
 			is = new FileInputStream("resources/main.properties");
 			properties.load(is);
 		} catch (IOException e) {
-			System.out.println(e.getMessage());
+			logger.debug(e.getMessage());
 		} finally {
 			if (null != is) try {
 				is.close();
 			} catch (IOException e) {
-				System.out.println(e.getMessage());
+				logger.debug(e.getMessage());
 			}
 		}
 	}

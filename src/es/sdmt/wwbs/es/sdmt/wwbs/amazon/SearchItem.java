@@ -1,4 +1,4 @@
-package es.sdmt.wwbs;
+package es.sdmt.wwbs.amazon;
 
 
 import java.io.FileNotFoundException;
@@ -7,13 +7,11 @@ import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Properties;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -24,14 +22,17 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
-import org.w3c.dom.DOMException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-public class SearchItem extends AmazonAPI {
 
+public class SearchItem extends AmazonAPI {
+	
+	private static Logger logger = LogManager.getLogger(SearchItem.class.getName());
       
     public SearchItem(){
     	
@@ -43,7 +44,7 @@ public class SearchItem extends AmazonAPI {
 		SignedRequestsHelper helper = SignedRequestsHelper.getInstance(getEndpoint(country), key, secret);
 		Item item = null;
 
-		System.out.println("############ Searching");
+		logger.debug("Searching");
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("Service", "AWSECommerceService");
 		params.put("Version", "2011-08-01");
@@ -60,7 +61,7 @@ public class SearchItem extends AmazonAPI {
 			//printResponse(response);
 			item = parseResponse(response);
 		} catch (Exception ex) {
-			Logger.getLogger(RequestTopSellers.class.getName()).log(Level.SEVERE, null, ex);
+			logger.error(ex);
 		}
 		
 		return item;
@@ -82,13 +83,11 @@ public class SearchItem extends AmazonAPI {
         DOMSource src = new DOMSource(doc);
         trans.transform(src, res);
         String toString = res.getWriter().toString();
-        System.out.println(toString);
+        logger.debug(toString);
     }
     
     private static Item parseResponse(Document response)  {
-
-    	String ASIN = null;
-		String URL = null;
+    	
 		Item item = new Item();
 		
 		NodeList nodeList = response.getElementsByTagName("Item");
@@ -101,7 +100,7 @@ public class SearchItem extends AmazonAPI {
 				Node child = childnodes.item(j);
 				
 				if (child.getNodeName().compareTo("ASIN") == 0) {
-					System.out.println("ZZZZZZZZZZZZZZ found one: " + child.getTextContent());
+					logger.debug("found one: " + child.getTextContent());
 					item.setASIN((child.getTextContent()));
 					return item;
 				}																				

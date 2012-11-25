@@ -19,7 +19,7 @@
  *
  */
 
-package es.sdmt.wwbs;
+package es.sdmt.wwbs.amazon;
 
 import java.io.UnsupportedEncodingException;
 

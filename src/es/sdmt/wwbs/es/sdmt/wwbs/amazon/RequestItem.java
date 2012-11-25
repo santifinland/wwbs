@@ -1,18 +1,17 @@
-package es.sdmt.wwbs;
+package es.sdmt.wwbs.amazon;
 
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
-import java.net.URL;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -23,13 +22,19 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
-import org.w3c.dom.DOMException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import es.sdmt.wwbs.translator.BingTranslator;
+
+
 public class RequestItem extends AmazonAPI {
+	
+	private static Logger logger = LogManager.getLogger(BingTranslator.class.getName());
     
     public RequestItem(){
     	
@@ -55,7 +60,7 @@ public class RequestItem extends AmazonAPI {
             printResponse(response);
             detailPageURL = parseResponse(response);
         } catch (Exception ex) {
-            Logger.getLogger(RequestItem.class.getName()).log(Level.SEVERE, null, ex);
+            logger.error(ex);
         }
         
         return detailPageURL;
@@ -76,7 +81,7 @@ public class RequestItem extends AmazonAPI {
         DOMSource src = new DOMSource(doc);
         trans.transform(src, res);
         String toString = res.getWriter().toString();
-        System.out.println(toString);
+        logger.debug(toString);
     }
     
     private static String parseResponse(Document response)  {
@@ -91,7 +96,7 @@ public class RequestItem extends AmazonAPI {
 			for (int j = 0; j < sizechildnodes; j++) {
 				Node child = childnodes.item(j);
 				if (child.getNodeName().compareTo("DetailPageURL") == 0) {
-					System.out.println("TTTTTTTTTTTTTTTT   Datailed URL Page: " + child.getTextContent());
+					logger.debug("Datailed URL Page: " + child.getTextContent());
 					detailPageURL = child.getTextContent();
 				}								
 			}

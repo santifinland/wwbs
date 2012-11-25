@@ -10,17 +10,31 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Properties;
 
-public class BuildSite {
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import es.sdmt.wwbs.amazon.Item;
+import es.sdmt.wwbs.amazon.RequestItem;
+import es.sdmt.wwbs.amazon.RequestTopSellers;
+import es.sdmt.wwbs.translator.TranslateItems;
+
+public class WordWideBestSellers {
 
 	static Properties properties = new Properties();
 	static RequestTopSellers requestTopSellers =  new RequestTopSellers();
 	
-	public BuildSite() {}
+	private static Logger logger = LogManager.getLogger(WordWideBestSellers.class.getName());
+	
+	public WordWideBestSellers() {}
 	
 	public static void main(String[] args) throws InvalidKeyException, IllegalArgumentException, NoSuchAlgorithmException, IOException {
 		
+		// Get logger		
+		logger.info("WWBS");
+		logger.info("Log started");
+		
 		// Load properties	
-		BuildSite.getProperties();					
+		WordWideBestSellers.getProperties();					
 
 		// Request items for every country
 		List<String> countries = new ArrayList<String>();
@@ -37,17 +51,17 @@ public class BuildSite {
 		Iterator<String> i = countries.iterator();
 		while (i.hasNext()) {			
 			String country = i.next();
-			System.out.println("############ Country: " + country);						 
+			logger.info("Country: " + country);			
 			List<Item> itemList = requestTopSellers.getTopSellers(country);	
 			itemList = TranslateItems.translate(country.toLowerCase(), itemList);
 			
 			Iterator<Item> j = itemList.iterator();
-			System.out.println("Found " + itemList.size() + " items translated");
+			
 			
 			index.add(country);
 			
 			while (j.hasNext()) {
-				System.out.println("SSSSSSSSSSSSSSSSSSSSSSS Item number: " + j);
+				logger.debug("Item number: " + j);
 				Item item = j.next();
 				if (item.getASIN() != null) {
 					String detailPageURL = RequestItem.getItem(country, item.getASIN());
@@ -56,11 +70,11 @@ public class BuildSite {
 			}
 		}
 		
-		System.out.println("ZZZZZZZZZZZZZZZZZ            Final index: ");
+		logger.info("Final index: ");
 		Iterator<String> k = index.iterator();
 		while (k.hasNext()) {
 			String line = k.next();
-			System.out.println(line);
+			logger.info(line);
 		}
 	}
 
@@ -72,12 +86,12 @@ public class BuildSite {
 			is = new FileInputStream("resources/main.properties");
 			properties.load(is);
 		} catch (IOException e) {
-			System.out.println(e.getMessage());
+			logger.error(e.getMessage());
 		} finally {
 			if (null != is) try {
 				is.close();
 			} catch (IOException e) {
-				System.out.println(e.getMessage());
+				logger.error(e.getMessage());
 			}
 		}
 	}

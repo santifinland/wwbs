@@ -1,4 +1,4 @@
-package es.sdmt.wwbs;
+package es.sdmt.wwbs.amazon;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -53,8 +53,7 @@ public class AmazonAPI {
 		setSecret(properties.getProperty("SECRET_KEY"));
 		
 		String countriesstring = properties.getProperty("NumberOfContries");
-		int countries = Integer.parseInt(countriesstring);
-		System.out.println("int: " + countries);
+		int countries = Integer.parseInt(countriesstring);		
 		for (int i = 0; i < countries; i++) {
 		
 			String country = properties.getProperty("countryprefix" + (i+1));					

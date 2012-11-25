@@ -1,4 +1,4 @@
-package es.sdmt.wwbs;
+package es.sdmt.wwbs.amazon;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -11,8 +11,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -24,13 +22,18 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.w3c.dom.DOMException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-public class RequestTopSellers extends AmazonAPI {	
+
+public class RequestTopSellers extends AmazonAPI {
+	
+	private static Logger logger = LogManager.getLogger(RequestTopSellers.class.getName());
 	
 	public RequestTopSellers() {
 		super();			
@@ -38,7 +41,7 @@ public class RequestTopSellers extends AmazonAPI {
 
 	public List<Item> getTopSellers(String country) throws InvalidKeyException, IllegalArgumentException, UnsupportedEncodingException, NoSuchAlgorithmException {
 		
-		System.out.println("############ Getting top sellers from : " + country);
+		logger.info("Getting top sellers from : " + country);
 		SignedRequestsHelper helper = SignedRequestsHelper.getInstance(getEndpoint(country), key, secret);
 		List<Item> itemList = new ArrayList<Item>();
 
@@ -56,7 +59,7 @@ public class RequestTopSellers extends AmazonAPI {
 			printResponse(response);
 			itemList = parseResponse(response);
 		} catch (Exception ex) {
-			Logger.getLogger(RequestTopSellers.class.getName()).log(Level.SEVERE, null, ex);
+			logger.error(ex.getStackTrace());
 		}
 		
 		return itemList;
@@ -79,14 +82,12 @@ public class RequestTopSellers extends AmazonAPI {
 		DOMSource src = new DOMSource(doc);
 		trans.transform(src, res);
 		String toString = res.getWriter().toString();
-		System.out.println(toString);
+		logger.debug(toString);
 	}
 
 	private static List<Item> parseResponse(Document response) throws InvalidKeyException, IllegalArgumentException, UnsupportedEncodingException,
 	        NoSuchAlgorithmException, DOMException {
-
-		String ASIN = null;
-		String URL = null;
+		
 		List<Item> itemList = new ArrayList<Item>();
 		
 
@@ -103,7 +104,7 @@ public class RequestTopSellers extends AmazonAPI {
 				
 				if (child.getNodeName().compareTo("Title") == 0) {
 					item.setTitle(child.getTextContent());
-					System.out.println("Title: " + item.getTitle());
+					logger.debug("Title: " + item.getTitle());
 				}
 				else if (child.getNodeName().compareTo("Author") == 0) {
 					item.setAuthor(child.getTextContent());
@@ -116,7 +117,7 @@ public class RequestTopSellers extends AmazonAPI {
 					URL = child.getTextContent();
 				}*/								
 			}
-			//System.out.println("<a href=\"" + URL + "\">" + "<img border=\"0\" src=\"http://images.amazon.com/images/P/" + ASIN
+			//logger.info("<a href=\"" + URL + "\">" + "<img border=\"0\" src=\"http://images.amazon.com/images/P/" + ASIN
 			//      + "\" width=\"114\" height=\"150\" style=\"margin-right: 8px\"> </a>");
 			
 			itemList.add(item);			

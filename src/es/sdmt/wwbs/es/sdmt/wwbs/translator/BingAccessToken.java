@@ -1,4 +1,4 @@
-package es.sdmt.wwbs;
+package es.sdmt.wwbs.translator;
 
 public class BingAccessToken {
 
