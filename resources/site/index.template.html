@@ -1,0 +1,1458 @@
+<!DOCTYPE html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8" />
+
+<!-- Set the viewport width to device width for mobile -->
+<meta name="viewport" content="width=device-width" />
+
+<title>Welcome to Foundation</title>
+
+<!-- Included CSS Files (Uncompressed) -->
+<!--
+  <link rel="stylesheet" href="stylesheets/foundation.css">
+  -->
+
+<!-- Included CSS Files (Compressed) -->
+<link rel="stylesheet" href="stylesheets/foundation.min.css">
+<link rel="stylesheet" href="stylesheets/app.css">
+<link rel="stylesheet" href="stylesheets/wwbs.css">
+
+<script src="javascripts/modernizr.foundation.js"></script>
+<script src="javascripts/raphael-min.js"></script>
+<script src="javascripts/world.js"></script>
+<script>
+	Raphael(
+			'map',
+			910,
+			380,
+			function() {
+				var r = this;
+				r.rect(0, 0, 910, 380, 10).attr({
+					stroke : "none",
+					fill : "0-#9bb7cb-#adc8da"
+				});
+				var over = function() {
+					this.c = this.c || this.attr("fill");
+					this.stop().animate({
+						fill : "#bacabd"
+					}, 500);
+
+				}, out = function() {
+					this.stop().animate({
+						fill : this.c
+					}, 500);
+				}, click = function() {
+					for ( var country in worldmap.shapes) {
+						document.getElementById(country).style.display = "none";
+					}
+					document.getElementById(this.data("cname")).style.display = "block";
+				};
+				r.setStart();
+				var hue = Math.random();
+				for ( var country in worldmap.shapes) {
+					r.path(worldmap.shapes[country]).attr({
+						stroke : "#ccc6ae",
+						fill : "#f0efeb",
+						"stroke-opacity" : 0.25
+					}).data("cname", country);
+				}
+				var world = r.setFinish();
+				world.hover(over, out);
+				world.click(click);
+
+			});
+</script>
+
+<!-- IE Fix for HTML5 Tags -->
+<!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+</head>
+<body>
+
+	<div class="row">
+		<div class="twelve columns">
+			<h2>Worldwide Bestsellers</h2>
+			<p>Find out what they are reading!</p>
+		</div>
+	</div>
+
+	<div class="row">
+		<div id="map" class="twelve columns"></div>
+		<div id="AE">
+			<div class="two columns">
+				<h4>United Arab Emirates</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="AF">
+			<div class="two columns">
+				<h4>Afghanistan</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="AL">
+			<div class="two columns">
+				<h4>Albania</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="AM">
+			<div class="two columns">
+				<h4>Armenia</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="AO">
+			<div class="two columns">
+				<h4>Angola</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="AR">
+			<div class="two columns">
+				<h4>Argentina</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="AT">
+			<div class="two columns">
+				<h4>Austria</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="AU">
+			<div class="two columns">
+				<h4>Australia</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="AZ">
+			<div class="two columns">
+				<h4>Azerbaijan</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="BA">
+			<div class="two columns">
+				<h4>Bosnia and Herzegovina</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>					
+		<div id="BD">
+			<div class="two columns">
+				<h4>Bangladesh</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="BE">
+			<div class="two columns">
+				<h4>Belgium</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="BF">
+			<div class="two columns">
+				<h4>Burkina Faso</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="BG">
+			<div class="two columns">
+				<h4>Bulgaria</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="BI">
+			<div class="two columns">
+				<h4>Burundi</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="BJ">
+			<div class="two columns">
+				<h4>Benin</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="BN">
+			<div class="two columns">
+				<h4>Brunei Darussalam</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="BO">
+			<div class="two columns">
+				<h4>Plurinational State of Bolivia</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="BR">
+			<div class="two columns">
+				<h4>Brazil</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="BT">
+			<div class="two columns">
+				<h4>Bhutan</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="BW">
+			<div class="two columns">
+				<h4>Botswana</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="BY">
+			<div class="two columns">
+				<h4>Belarus</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="BZ">
+			<div class="two columns">
+				<h4>Belize</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>		
+		<div id="CA">
+			<div class="two columns">
+				<h4>Canada</h4>
+			</div>
+			<div class="ten columns">
+				<br> 
+				<!-- CA -->
+			</div>
+		</div>
+		<div id="CD">
+			<div class="two columns">
+				<h4>The Democratic Republic of the Congo</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>		
+		</div>
+		<div id="CF">
+			<div class="two columns">
+				<h4>Central African Republic</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="CG">
+			<div class="two columns">
+				<h4>Congo</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="CH">
+			<div class="two columns">
+				<h4>Switzerland</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="CI">	
+			<div class="two columns">
+				<h4>Ivory Coast</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="CL">
+			<div class="two columns">
+				<h4>Chile</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="CM">
+			<div class="two columns">
+				<h4>Cameroon</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="CN">
+			<div class="two columns">
+				<h4>China</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="CO">
+			<div class="two columns">
+				<h4>Colombia</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="CR">
+			<div class="two columns">
+				<h4>Costa Rica</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="CU">
+			<div class="two columns">
+				<h4>Cuba</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="CY">
+			<div class="two columns">
+				<h4>Cyprus</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="CZ">
+			<div class="two columns">
+				<h4>Czech Republic</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>			
+		<div id="DE">
+			<div class="two columns">
+				<h4>Germany</h4>
+			</div>
+			<div class="ten columns">
+				<br>
+				<!-- DE -->
+			</div>
+		</div>
+		<div id="DJ">
+			<div class="two columns">
+				<h4>Djibouti</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="DK">
+			<div class="two columns">
+				<h4>Denmark</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="DO">
+			<div class="two columns">
+				<h4>Dominican Republic</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="DZ">
+			<div class="two columns">
+				<h4>Algeria</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>		
+		</div>
+		<div id="EC">
+			<div class="two columns">
+				<h4>Ecuador</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="EE">
+			<div class="two columns">
+				<h4>Estonia</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="EG">
+			<div class="two columns">
+				<h4>Egypt</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="EH">
+			<div class="two columns">
+				<h4>Western Sahara</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="ER">
+			<div class="two columns">
+				<h4>Eritrea</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="ES">
+			<div class="two columns">
+				<h4>Spain</h4>
+			</div>
+			<div class="ten columns">
+				<br>
+				<!-- ES -->
+			</div>
+		</div>
+		<div id="ET">
+			<div class="two columns">
+				<h4>Ethiopia</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="FI">
+			<div class="two columns">
+				<h4>Finland</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="FJ">
+			<div class="two columns">
+				<h4>Fiji</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="FK">
+			<div class="two columns">
+				<h4>Falkland Islands (Malvinas)</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="FR">
+			<div class="two columns">
+				<h4>France</h4>
+			</div>
+			<div class="ten columns">
+				<br>
+				<!-- FR -->
+			</div>
+		</div>
+		<div id="GA">
+			<div class="two columns">
+				<h4>Gabon</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="GB">
+			<div class="two columns">
+				<h4>United Kingdom</h4>
+			</div>
+			<div class="ten columns">
+				<br>
+				<!-- GB --> 
+			</div>
+		</div>
+		<div id="GE">
+			<div class="two columns">
+				<h4>Georgia</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="GF">
+			<div class="two columns">
+				<h4>French Guiana</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="GH">
+			<div class="two columns">			
+				<h4>Ghana</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="GL">
+			<div class="two columns">
+				<h4>Greenland</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="GM">
+			<div class="two columns">
+				<h4>Gambia</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="GN">
+			<div class="two columns">
+				<h4>Guinea</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="GQ">
+			<div class="two columns">
+				<h4>Equatorial Guinea</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="GR">
+			<div class="two columns">
+				<h4>Greece</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="GT">
+			<div class="two columns">
+				<h4>Guatemala</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="GW">
+			<div class="two columns">
+				<h4>Guinea-Bissau</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="GY">
+			<div class="two columns">
+				<h4>Guyana</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="HN">
+			<div class="two columns">
+				<h4>Honduras</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="HR">
+			<div class="two columns">
+				<h4>Croatia</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="HT">
+			<div class="two columns">
+				<h4>Haiti</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="HU">
+			<div class="two columns">
+				<h4>Hungary</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="ID">
+			<div class="two columns">
+				<h4>Indonesia</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="IE">
+			<div class="two columns">
+				<h4>Ireland</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="IL">
+			<div class="two columns">
+				<h4>Israel</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="IN">
+			<div class="two columns">
+				<h4>India</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="IQ">
+			<div class="two columns">
+				<h4>Iraq</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="IR">
+			<div class="two columns">
+				<h4>Islamic Republic of Iran</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="IS">
+			<div class="two columns">
+				<h4>Iceland</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="IT">
+			<div class="two columns">
+				<h4>Italy</h4>
+			</div>
+			<div class="ten columns">
+				<br>
+				<!-- IT -->
+			</div>
+		</div>
+		<div id="JM">
+			<div class="two columns">
+				<h4>Jamaica</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="JO">
+			<div class="two columns">
+				<h4>Jordan</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="JP">
+			<div class="two columns">
+				<h4>Japan</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="KE">
+			<div class="two columns">
+				<h4>Kenya</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="KG">		
+			<div class="two columns">
+				<h4>Kyrgyzstan</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="KH">
+			<div class="two columns">
+				<h4>Cambodia</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="KP">
+			<div class="two columns">
+				<h4>Democratic People\u2019s Republic of Korea</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="KR">
+			<div class="two columns">
+				<h4>Republic of Korea</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="KW">
+			<div class="two columns">
+				<h4>Kuwait</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="KZ">
+			<div class="two columns">
+				<h4>Kazakhstan</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="LA">
+			<div class="two columns">
+				<h4>Lao People\u2019s Democratic Republic</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="LB">
+			<div class="two columns">
+				<h4>Lebanon</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="LK">
+			<div class="two columns">
+				<h4>Sri Lanka</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="LR">
+			<div class="two columns">
+				<h4>Liberia</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="LS">
+			<div class="two columns">
+				<h4>Lesotho</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="LT">
+			<div class="two columns">
+				<h4>Lithuania</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="LU">
+			<div class="two columns">
+				<h4>Luxembourg</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="LV">
+			<div class="two columns">
+				<h4>Latvia</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="LY">
+			<div class="two columns">
+				<h4>Libyan Arab Jamahiriya</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="MA">
+			<div class="two columns">
+				<h4>Morocco</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="MD">
+			<div class="two columns">
+				<h4>Republic of Moldova</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="MG">
+			<div class="two columns">
+				<h4>Madagascar</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="MK">
+			<div class="two columns">
+				<h4>The Former Yugoslav Republic of Macedonia</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="ML">
+			<div class="two columns">
+				<h4>Mali</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="MM">
+			<div class="two columns">
+				<h4>Myanmar</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="MN">
+			<div class="two columns">
+				<h4>Mongolia</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="MR">
+			<div class="two columns">
+				<h4>Mauritania</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="MW">
+			<div class="two columns">
+				<h4>Malawi</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="MX">
+			<div class="two columns">
+				<h4>Mexico</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="MY">
+			<div class="two columns">
+				<h4>Malaysia</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="MZ">
+			<div class="two columns">
+				<h4>Mozambique</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="NA">
+			<div class="two columns">
+				<h4>Namibia</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="NC">
+			<div class="two columns">
+				<h4>CuNew Caledoniaba</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="NE">
+			<div class="two columns">
+				<h4>Niger</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="NG">
+			<div class="two columns">
+				<h4>Nigeria</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="NI">
+			<div class="two columns">
+				<h4>Nicaragua</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="NL">
+			<div class="two columns">
+				<h4>Netherlands</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="NO">
+			<div class="two columns">
+				<h4>Norway</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="NP">
+			<div class="two columns">
+				<h4>Nepal</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="NZ">
+			<div class="two columns">
+				<h4>New Zealand</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="OM">
+			<div class="two columns">
+				<h4>Oman</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="PA">
+			<div class="two columns">
+				<h4>Panama</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="PE">
+			<div class="two columns">
+				<h4>Peru</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="PG">
+			<div class="two columns">
+				<h4>Papua New Guinea</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="PH">
+			<div class="two columns">
+				<h4>Papua New Guinea</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="PK">
+			<div class="two columns">
+				<h4>Pakistan</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="PL">
+			<div class="two columns">
+				<h4>Poland</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="PR">
+			<div class="two columns">
+				<h4>Puerto Rico</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="PS">
+			<div class="two columns">
+				<h4>Occupied Palestinian Territory</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="PT">
+			<div class="two columns">
+				<h4>Portugal</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="PY">
+			<div class="two columns">
+				<h4>Paraguay</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="QA">
+			<div class="two columns">
+				<h4>Qatar</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="RO">
+			<div class="two columns">
+				<h4>Romania</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="RS">
+			<div class="two columns">
+				<h4>Serbia</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="RU">
+			<div class="two columns">
+				<h4>Russian Federation</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="RW">
+			<div class="two columns">
+				<h4>Rwanda</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="SA">
+			<div class="two columns">
+				<h4>Saudi Arabia</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="SB">
+			<div class="two columns">
+				<h4>Solomon Islands</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="SD">
+			<div class="two columns">
+				<h4>Sudan</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="SE">
+			<div class="two columns">
+				<h4>Sweden</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="SJ">
+			<div class="two columns">
+				<h4>Svalbard and Jan Mayen</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="SK">
+			<div class="two columns">
+				<h4>Slovakia</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="SL">
+			<div class="two columns">
+				<h4>Sierra Leone</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="SN">
+			<div class="two columns">
+				<h4>Senegal</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="SO">
+			<div class="two columns">
+				<h4>Somalia</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="SR">
+			<div class="two columns">
+				<h4>Suriname</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="SV">
+			<div class="two columns">
+				<h4>El Salvador</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="SY">
+			<div class="two columns">
+				<h4>Syrian Arab Republic</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="SZ">
+			<div class="two columns">
+				<h4>Swaziland</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="TD">
+			<div class="two columns">
+				<h4>Chad</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="TG">
+			<div class="two columns">
+				<h4>Togo</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="TH">
+			<div class="two columns">
+				<h4>Thailand</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="TJ">
+			<div class="two columns">
+				<h4>Tajikistan</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="TL">
+			<div class="two columns">
+				<h4>Timor-Leste</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="TM">
+			<div class="two columns">
+				<h4>Turkmenistan</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="TN">
+			<div class="two columns">
+				<h4>Tunisia</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="TR">
+			<div class="two columns">
+				<h4>Turkey</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="TW">
+			<div class="two columns">
+				<h4>Province of China Taiwan</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="TZ">
+			<div class="two columns">
+				<h4>United Republic of Tanzania</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="UA">
+			<div class="two columns">
+				<h4>Ukraine</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="UG">
+			<div class="two columns">
+				<h4>Uganda</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="US">
+			<div class="two columns">
+				<h4>United States</h4>
+			</div>
+			<div class="ten columns">
+				<br>
+				<!-- US -->
+			</div>
+		</div>
+		<div id="UY">
+			<div class="two columns">
+				<h4>Uruguay</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="UZ">
+			<div class="two columns">
+				<h4>Uzbekistan</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="VE">
+			<div class="two columns">
+				<h4>Bolivarian Republic of Venezuela</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="VN">
+			<div class="two columns">
+				<h4>Viet Nam</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="VU">
+			<div class="two columns">
+				<h4>Vanuatu</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="YE">
+			<div class="two columns">
+				<h4>Yemen</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="ZA">
+			<div class="two columns">
+				<h4>South Africa</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="ZM">
+			<div class="two columns">
+				<h4>Zambia</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+		<div id="ZW">
+			<div class="two columns">
+				<h4>Cuba</h4>
+			</div>
+			<div class="ten columns">				
+				<h4>No information available</h4>
+			</div>
+		</div>
+	</div>
+
+	<!-- Included JS Files (Compressed) -->
+	<script src="javascripts/foundation.min.js"></script>
+
+	<!-- Initialize JS Plugins -->
+	<script src="javascripts/app.js"></script>
+</body>
+</html>

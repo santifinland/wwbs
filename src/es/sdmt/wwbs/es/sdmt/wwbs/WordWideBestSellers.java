@@ -20,10 +20,17 @@ import es.sdmt.wwbs.translator.TranslateItems;
 
 public class WordWideBestSellers {
 
-	static Properties properties = new Properties();
+	private static Properties properties = new Properties();
+	private static Logger logger = LogManager.getLogger(WordWideBestSellers.class.getName());
+	
 	static RequestTopSellers requestTopSellers =  new RequestTopSellers();
 	
-	private static Logger logger = LogManager.getLogger(WordWideBestSellers.class.getName());
+	private static List<String> itemLinksUS = new ArrayList<String>();
+	private static List<String> itemLinksES = new ArrayList<String>();
+	private static List<String> itemLinksIT = new ArrayList<String>();
+	private static List<String> itemLinksDE = new ArrayList<String>();
+	private static List<String> itemLinksFR = new ArrayList<String>();
+	private static List<String> itemLinksUK = new ArrayList<String>();	
 	
 	public WordWideBestSellers() {}
 	
@@ -65,6 +72,28 @@ public class WordWideBestSellers {
 				Item item = j.next();
 				if (item.getASIN() != null) {
 					String detailPageURL = RequestItem.getItem(country, item.getASIN());
+					switch (country) {
+					case "US":
+						itemLinksUS.add("<a href=\"" + detailPageURL + "\"><img border=\"0\" src=\"http://images.amazon.com/images/P/" + item.getASIN() + "\" width=\"114\" height=\"150\" style=\"margin-right: 8px\"> </a>");
+						break;
+					case "ES":
+						itemLinksES.add("<a href=\"" + detailPageURL + "\"><img border=\"0\" src=\"http://images.amazon.com/images/P/" + item.getASIN() + "\" width=\"114\" height=\"150\" style=\"margin-right: 8px\"> </a>");
+						break;
+					case "IT":
+						itemLinksIT.add("<a href=\"" + detailPageURL + "\"><img border=\"0\" src=\"http://images.amazon.com/images/P/" + item.getASIN() + "\" width=\"114\" height=\"150\" style=\"margin-right: 8px\"> </a>");
+						break;
+					case "DE":
+						itemLinksDE.add("<a href=\"" + detailPageURL + "\"><img border=\"0\" src=\"http://images.amazon.com/images/P/" + item.getASIN() + "\" width=\"114\" height=\"150\" style=\"margin-right: 8px\"> </a>");
+						break;
+					case "FR":
+						itemLinksFR.add("<a href=\"" + detailPageURL + "\"><img border=\"0\" src=\"http://images.amazon.com/images/P/" + item.getASIN() + "\" width=\"114\" height=\"150\" style=\"margin-right: 8px\"> </a>");
+						break;
+					case "UK":
+						itemLinksUK.add("<a href=\"" + detailPageURL + "\"><img border=\"0\" src=\"http://images.amazon.com/images/P/" + item.getASIN() + "\" width=\"114\" height=\"150\" style=\"margin-right: 8px\"> </a>");
+						break;
+					default:
+						break;
+					}
 					index.add("<a href=\"" + detailPageURL + "\"><img border=\"0\" src=\"http://images.amazon.com/images/P/" + item.getASIN() + "\" width=\"114\" height=\"150\" style=\"margin-right: 8px\"> </a>" );									
 				}
 			}
@@ -73,7 +102,7 @@ public class WordWideBestSellers {
 		logger.info("Final index: ");
 		Iterator<String> k = index.iterator();
 		while (k.hasNext()) {
-			String line = k.next();
+			String line = k.next();		
 			logger.info(line);
 		}
 	}
