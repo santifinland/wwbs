@@ -41,29 +41,34 @@ public class WordWideBestSellers {
 		logger.info("Log started");
 		
 		// Load properties	
-		WordWideBestSellers.getProperties();					
+		WordWideBestSellers.getProperties();			
 
 		// Request items for every country
 		List<String> countries = new ArrayList<String>();
 		countries.add("US");		
-		countries.add("ES");
-		countries.add("IT");
-		countries.add("DE");
+		//countries.add("ES");
+		//countries.add("IT");
+		//countries.add("DE");
 		//countries.add("CA");		
-		countries.add("FR");
-		countries.add("UK");
+		//countries.add("FR");
+		//countries.add("UK");
 				
+		// index contains all items of all contries translated
 		List<String> index = new ArrayList<String>();
 		
 		Iterator<String> i = countries.iterator();
 		while (i.hasNext()) {			
+			
 			String country = i.next();
-			logger.info("Country: " + country);			
-			List<Item> itemList = requestTopSellers.getTopSellers(country);	
+			logger.info("Country: " + country);									
+			
+			// Search for items
+			List<Item> itemList = requestTopSellers.getTopSellers(country);
+			
+			// Translate items
 			itemList = TranslateItems.translate(country.toLowerCase(), itemList);
 			
-			Iterator<Item> j = itemList.iterator();
-			
+			Iterator<Item> j = itemList.iterator();		
 			
 			index.add(country);
 			
@@ -102,9 +107,20 @@ public class WordWideBestSellers {
 		logger.info("Final index: ");
 		Iterator<String> k = index.iterator();
 		while (k.hasNext()) {
-			String line = k.next();		
+			String line = k.next();
 			logger.info(line);
 		}
+		
+		// Build site	
+		PersistanceLinks.refresh(itemLinksUS, "US");
+		//BuildSite.refresh(itemLinksES, "ES");
+		//BuildSite.refresh(itemLinksIT, "IT");
+		//BuildSite.refresh(itemLinksDE, "DE");
+		//BuildSite.refresh(itemLinksFR, "FR");
+		//BuildSite.refresh(itemLinksUK, "UK");		
+		BuildSite.addLinksToSite();
+			
+		
 	}
 
 	private static void getProperties() {
