@@ -7,9 +7,12 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Properties;
+import java.util.Set;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -38,7 +41,10 @@ public class PersistanceLinks {
 			itemLinks.add(item);
 		}
 		
-		if (itemLinks.size() > 10) itemLinks = itemLinks.subList(0, 10);
+		// Remove duplicates
+		itemLinks = removeDuplicates(itemLinks);
+		
+		if (itemLinks.size() > 12) itemLinks = itemLinks.subList(0, 12);
 
 		// Store new list
 		storeLinks(itemLinks, country);
@@ -86,6 +92,18 @@ public class PersistanceLinks {
 		Path path = Paths.get(aFileName);
 		Files.write(path, aLines, Charset.defaultCharset());
 	}
+	
+	private static List<String> removeDuplicates(List<String> itemLinks) {
+		
+		//remove duplicates if any
+		Set<String> setItems = new LinkedHashSet<String>(itemLinks);
+		itemLinks.clear();
+		itemLinks.addAll(setItems);
+		List<String> itemLinksNoDuplicates = new ArrayList<String>();
+		itemLinksNoDuplicates.addAll(setItems);
+		return itemLinksNoDuplicates;
+	}
+	
 
 	private static void getProperties() {
 

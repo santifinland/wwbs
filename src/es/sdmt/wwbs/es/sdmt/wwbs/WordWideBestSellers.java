@@ -46,12 +46,12 @@ public class WordWideBestSellers {
 		// Request items for every country
 		List<String> countries = new ArrayList<String>();
 		countries.add("US");		
-		//countries.add("ES");
-		//countries.add("IT");
-		//countries.add("DE");
+		countries.add("ES");
+		countries.add("IT");
+		countries.add("DE");
 		//countries.add("CA");		
-		//countries.add("FR");
-		//countries.add("UK");
+		countries.add("FR");
+		countries.add("UK");
 				
 		// index contains all items of all contries translated
 		List<String> index = new ArrayList<String>();
@@ -113,11 +113,11 @@ public class WordWideBestSellers {
 		
 		// Build site	
 		PersistanceLinks.refresh(itemLinksUS, "US");
-		//BuildSite.refresh(itemLinksES, "ES");
-		//BuildSite.refresh(itemLinksIT, "IT");
-		//BuildSite.refresh(itemLinksDE, "DE");
-		//BuildSite.refresh(itemLinksFR, "FR");
-		//BuildSite.refresh(itemLinksUK, "UK");		
+		PersistanceLinks.refresh(itemLinksES, "ES");
+		PersistanceLinks.refresh(itemLinksIT, "IT");
+		PersistanceLinks.refresh(itemLinksDE, "DE");
+		PersistanceLinks.refresh(itemLinksFR, "FR");
+		PersistanceLinks.refresh(itemLinksUK, "UK");		
 		BuildSite.addLinksToSite();
 			
 		
