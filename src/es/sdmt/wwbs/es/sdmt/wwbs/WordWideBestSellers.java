@@ -32,6 +32,7 @@ public class WordWideBestSellers {
 	private static List<String> itemLinksFR = new ArrayList<String>();
 	private static List<String> itemLinksUK = new ArrayList<String>();
 	private static List<String> itemLinksCA = new ArrayList<String>();
+	private static List<String> itemLinksCN = new ArrayList<String>();
 	
 	public WordWideBestSellers() {}
 	
@@ -53,6 +54,7 @@ public class WordWideBestSellers {
 		countries.add("FR");
 		countries.add("UK");
 		countries.add("CA");
+		countries.add("CN");
 				
 		// index contains all items of all contries translated
 		List<String> index = new ArrayList<String>();
@@ -100,6 +102,9 @@ public class WordWideBestSellers {
 					case "CA":
 						itemLinksCA.add("<a href=\"" + detailPageURL + "\"><img border=\"0\" src=\"http://images.amazon.com/images/P/" + item.getASIN() + "\" width=\"114\" height=\"150\" style=\"margin-right: 8px\"> </a>");
 						break;
+					case "CN":
+						itemLinksCN.add("<a href=\"" + detailPageURL + "\"><img border=\"0\" src=\"http://images.amazon.com/images/P/" + item.getASIN() + "\" width=\"114\" height=\"150\" style=\"margin-right: 8px\"> </a>");
+						break;
 					default:
 						break;
 					}
@@ -123,6 +128,7 @@ public class WordWideBestSellers {
 		PersistanceLinks.refresh(itemLinksFR, "FR");
 		PersistanceLinks.refresh(itemLinksUK, "UK");
 		PersistanceLinks.refresh(itemLinksCA, "CA");
+		PersistanceLinks.refresh(itemLinksCN, "CN");
 		BuildSite.addLinksToSite();
 			
 		
