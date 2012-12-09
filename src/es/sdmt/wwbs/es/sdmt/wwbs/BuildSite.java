@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Properties;
@@ -76,7 +75,7 @@ public class BuildSite {
 					while (i.hasNext()) {
 						bufferedWriter.write(i.next());
 					}
-				} else if (line.indexOf("<!-- UK -->") != -1) {
+				} else if (line.indexOf("<!-- GB -->") != -1) {
 					logger.info("Replacing for UK");
 					List<String> links = PersistanceLinks.loadLinks("UK");
 					Iterator<String> i = links.iterator();
@@ -93,6 +92,13 @@ public class BuildSite {
 				} else if (line.indexOf("<!-- US -->") != -1) {
 					logger.info("Replacing for US");
 					List<String> links = PersistanceLinks.loadLinks("US");
+					Iterator<String> i = links.iterator();
+					while (i.hasNext()) {
+						bufferedWriter.write(i.next());
+					}
+				} else if (line.indexOf("<!-- CA -->") != -1) {
+					logger.info("Replacing for CA");
+					List<String> links = PersistanceLinks.loadLinks("CA");
 					Iterator<String> i = links.iterator();
 					while (i.hasNext()) {
 						bufferedWriter.write(i.next());
