@@ -34,6 +34,7 @@ public class TranslateItems {
 			BingTranslator bingTranslator = new BingTranslator();			
 			BingAccessToken bingAccessToken = BingTranslator.getAccessToken();
 			if (country.contains("us")) country = "en";
+			if (country.contains("cn")) country = "zh-CHS";			
 			String translatedTitle = bingTranslator.translate(bingAccessToken, title, country, "en");
 			String author = item.getAuthor();
 			SearchItem searchItem = new SearchItem();

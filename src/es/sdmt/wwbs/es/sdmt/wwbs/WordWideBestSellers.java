@@ -47,13 +47,13 @@ public class WordWideBestSellers {
 
 		// Request items for every country
 		List<String> countries = new ArrayList<String>();
-		countries.add("US");		
+//		countries.add("US");		
 		countries.add("ES");
-		countries.add("IT");
-		countries.add("DE");			
-		countries.add("FR");
-		countries.add("UK");
-		countries.add("CA");
+//		countries.add("IT");
+//		countries.add("DE");			
+//		countries.add("FR");
+//		countries.add("UK");
+//		countries.add("CA");
 		countries.add("CN");
 				
 		// index contains all items of all contries translated

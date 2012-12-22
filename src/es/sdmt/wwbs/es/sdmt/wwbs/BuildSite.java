@@ -103,6 +103,13 @@ public class BuildSite {
 					while (i.hasNext()) {
 						bufferedWriter.write(i.next());
 					}
+				} else if (line.indexOf("<!-- CN -->") != -1) {
+					logger.info("Replacing for CN");
+					List<String> links = PersistanceLinks.loadLinks("CN");
+					Iterator<String> i = links.iterator();
+					while (i.hasNext()) {
+						bufferedWriter.write(i.next());
+					}
 				} else {
 					bufferedWriter.write(line);
 				}
