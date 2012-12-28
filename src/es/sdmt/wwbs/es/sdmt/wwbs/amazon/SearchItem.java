@@ -41,19 +41,25 @@ public class SearchItem extends AmazonAPI {
     
     public static Item searchItem(String country, String author, String title) throws InvalidKeyException, IllegalArgumentException, UnsupportedEncodingException, NoSuchAlgorithmException {
 
-		SignedRequestsHelper helper = SignedRequestsHelper.getInstance(getEndpoint(country), key, secret);
+		SignedRequestsHelper helper = SignedRequestsHelper.getInstance(getEndpoint("US"), key, secret);
 		Item item = null;
 
-		logger.debug("Searching");
+		logger.debug("Searching item in: " + country);
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("Service", "AWSECommerceService");
 		params.put("Version", "2011-08-01");
 		params.put("Operation", "ItemSearch");
 		params.put("SearchIndex", "Books");
 		if (author == null) author = " ";
-		params.put("Author", author);
+		if ((country.contains("cn")) || (country.contains("jp"))) {
+			logger.debug("No author set in the item search");			
+		} else {
+			params.put("Author", author);
+			logger.debug("Searching for author: " + author);
+		}
+		logger.debug("Searching for title: " + title);
 		params.put("Title", title);
-		params.put("AssociateTag", getAssociateTag(country));
+		params.put("AssociateTag", getAssociateTag("US"));
 
 		String url = helper.sign(params);
 		try {

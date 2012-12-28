@@ -110,6 +110,13 @@ public class BuildSite {
 					while (i.hasNext()) {
 						bufferedWriter.write(i.next());
 					}
+				} else if (line.indexOf("<!-- JP -->") != -1) {
+					logger.info("Replacing for JP");
+					List<String> links = PersistanceLinks.loadLinks("JP");
+					Iterator<String> i = links.iterator();
+					while (i.hasNext()) {
+						bufferedWriter.write(i.next());
+					}
 				} else {
 					bufferedWriter.write(line);
 				}

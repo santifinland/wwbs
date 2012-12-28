@@ -34,11 +34,12 @@ public class TranslateItems {
 			BingTranslator bingTranslator = new BingTranslator();			
 			BingAccessToken bingAccessToken = BingTranslator.getAccessToken();
 			if (country.contains("us")) country = "en";
-			if (country.contains("cn")) country = "zh-CHS";			
+			if (country.contains("cn")) country = "zh-CHS";
+			if (country.contains("jp")) country = "ja";			
 			String translatedTitle = bingTranslator.translate(bingAccessToken, title, country, "en");
 			String author = item.getAuthor();
 			SearchItem searchItem = new SearchItem();
-			Item translatedItem = searchItem.searchItem("US", author, translatedTitle);
+			Item translatedItem = searchItem.searchItem(country, author, translatedTitle);
 			translatedList.add(translatedItem);
 			
 		}
