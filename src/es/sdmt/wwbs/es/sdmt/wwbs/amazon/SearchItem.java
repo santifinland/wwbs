@@ -51,7 +51,7 @@ public class SearchItem extends AmazonAPI {
 		params.put("Operation", "ItemSearch");
 		params.put("SearchIndex", "Books");
 		if (author == null) author = " ";
-		if ((country.contains("cn")) || (country.contains("jp"))) {
+		if ((country.contains("zh-CHS")) || (country.contains("ja"))) {
 			logger.debug("No author set in the item search");			
 		} else {
 			params.put("Author", author);
