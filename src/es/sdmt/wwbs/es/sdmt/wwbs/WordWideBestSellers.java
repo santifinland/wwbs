@@ -35,6 +35,7 @@ public class WordWideBestSellers {
 	private static List<String> itemLinksCN = new ArrayList<String>();
 	private static List<String> itemLinksJP = new ArrayList<String>();
 	
+	
 	public WordWideBestSellers() {}
 	
 	public static void main(String[] args) throws InvalidKeyException, IllegalArgumentException, NoSuchAlgorithmException, IOException {
@@ -48,13 +49,13 @@ public class WordWideBestSellers {
 
 		// Request items for every country
 		List<String> countries = new ArrayList<String>();
-		countries.add("US");		
-		countries.add("ES");
-		countries.add("IT");
-		countries.add("DE");			
-		countries.add("FR");
-		countries.add("UK");
-		countries.add("CA");
+//		countries.add("US");		
+//		countries.add("ES");
+//		countries.add("IT");
+//		countries.add("DE");			
+//		countries.add("FR");
+//		countries.add("UK");
+//		countries.add("CA");
 		countries.add("CN");
 		countries.add("JP");
 				

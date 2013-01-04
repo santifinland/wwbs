@@ -117,6 +117,34 @@ public class BuildSite {
 					while (i.hasNext()) {
 						bufferedWriter.write(i.next());
 					}
+				} else if (line.indexOf("<!-- BR -->") != -1) {
+					logger.info("Replacing for BR");
+					List<String> links = PersistanceLinks.loadLinks("BR");
+					Iterator<String> i = links.iterator();
+					while (i.hasNext()) {
+						bufferedWriter.write(i.next());
+					}
+				} else if (line.indexOf("<!-- PT -->") != -1) {
+					logger.info("Replacing for PT");
+					List<String> links = PersistanceLinks.loadLinks("PT");
+					Iterator<String> i = links.iterator();
+					while (i.hasNext()) {
+						bufferedWriter.write(i.next());
+					}
+				} else if (line.indexOf("<!-- CH -->") != -1) {
+					logger.info("Replacing for CH");
+					List<String> links = PersistanceLinks.loadLinks("CH");
+					Iterator<String> i = links.iterator();
+					while (i.hasNext()) {
+						bufferedWriter.write(i.next());
+					}
+				} else if (line.indexOf("<!-- MX -->") != -1) {
+					logger.info("Replacing for MX");
+					List<String> links = PersistanceLinks.loadLinks("MX");
+					Iterator<String> i = links.iterator();
+					while (i.hasNext()) {
+						bufferedWriter.write(i.next());
+					}
 				} else {
 					bufferedWriter.write(line);
 				}
