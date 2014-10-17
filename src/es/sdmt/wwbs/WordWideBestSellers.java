@@ -10,8 +10,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Properties;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import java.util.logging.Logger;
 
 import es.sdmt.wwbs.amazon.Item;
 import es.sdmt.wwbs.amazon.RequestItem;
@@ -21,9 +20,9 @@ import es.sdmt.wwbs.translator.TranslateItems;
 public class WordWideBestSellers {
 
 	private static Properties properties = new Properties();
-	private static Logger logger = LogManager.getLogger(WordWideBestSellers.class.getName());
-	
-	static RequestTopSellers requestTopSellers =  new RequestTopSellers();
+    private final static Logger logger = Logger.getLogger(WordWideBestSellers.class.getName());
+
+    static RequestTopSellers requestTopSellers =  new RequestTopSellers();
 	
 	private static List<String> itemLinksUS = new ArrayList<String>();
 	private static List<String> itemLinksES = new ArrayList<String>();
@@ -36,26 +35,24 @@ public class WordWideBestSellers {
 	private static List<String> itemLinksJP = new ArrayList<String>();
 	
 	
-	public WordWideBestSellers() {}
-	
 	public static void main(String[] args) throws InvalidKeyException, IllegalArgumentException, NoSuchAlgorithmException, IOException {
 		
 		// Get logger		
 		logger.info("WWBS");
 		logger.info("Log started");
-		
+
 		// Load properties	
 		WordWideBestSellers.getProperties();			
 
 		// Request items for every country
 		List<String> countries = new ArrayList<String>();
-//		countries.add("US");		
-//		countries.add("ES");
-//		countries.add("IT");
-//		countries.add("DE");			
-//		countries.add("FR");
-//		countries.add("UK");
-//		countries.add("CA");
+		countries.add("US");
+		countries.add("ES");
+        countries.add("IT");
+        countries.add("DE");
+        countries.add("FR");
+        countries.add("UK");
+        countries.add("CA");
 		countries.add("CN");
 		countries.add("JP");
 				
@@ -79,9 +76,9 @@ public class WordWideBestSellers {
 			index.add(country);
 			
 			while (j.hasNext()) {
-				logger.debug("Item number: " + j);
+				logger.finest("Item number: " + j);
 				Item item = j.next();
-				if (item.getASIN() != null) {
+				if (item != null && item.getASIN() != null) {
 					String detailPageURL = RequestItem.getItem(country, item.getASIN());
 					switch (country) {
 					case "US":
@@ -149,12 +146,12 @@ public class WordWideBestSellers {
 			is = new FileInputStream("resources/main.properties");
 			properties.load(is);
 		} catch (IOException e) {
-			logger.error(e.getMessage());
+			logger.severe(e.getMessage());
 		} finally {
 			if (null != is) try {
 				is.close();
 			} catch (IOException e) {
-				logger.error(e.getMessage());
+				logger.severe(e.getMessage());
 			}
 		}
 	}
